@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: store-service
+  cloud:
+    stream:
+      default.contentType: application/json
+      bindings:
+        stockChannel.destination: stock
+        stockChannel.group: store
+      kafka:
+        bindings.input.customer.autoCommitOffset: false
+        binder:
+          brokers : localhost:9092
+          zkNodes: localhost
+    
+server:
+  port: 8081
+  
+inventory:
+  api.url: http://localhost:8080/api/inventory
+
+inventory-service:
+  ribbon:
+    eureka:
+      enable	: true
+    MaxAutoRetries : 3
+    MaxAutoRetriesNextServer : 3
+
+#zuul.sensitive-headers: Cookie, Set-Cookie
+
+eureka: 
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    fetch-registry: true
+    register-with-eureka: true
+
+feign:
+  hystrix:
+    enabled: true
+
