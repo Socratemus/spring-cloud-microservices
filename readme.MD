@@ -2,6 +2,7 @@
  - docker-compose create (download images!)
  - docker-compose up // download and starts
  - docker-compose ps // see current images
+ - docker-compose scale inventory=3 //to raise number of containers 
 
 2. Authentication Service:: (auth module)
 

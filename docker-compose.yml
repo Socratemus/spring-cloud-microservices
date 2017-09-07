@@ -19,3 +19,38 @@ services:
     image: esolutionsacademy/auth-cornel:1
     ports:
       - "9999:9999"
+  discovery:
+    image: esolutionsacademy/discovery-cornel:1
+    ports:
+      - "8761:8761"
+  
+  gateway:
+    image: esolutionsacademy/gateway-cornel:1
+    ports:
+      - "8080:8080"
+    links:
+      - discovery:discovery
+    environment:
+      DISCOVERY: discovery
+
+  store:
+    image: esolutionsacademy/store-cornel:1
+    links:
+      - discovery:discovery
+      - zookeeper:zk
+      - kafka:kafka
+    environment:
+      DISCOVERY: discovery
+      KAFKA: kafka
+      ZOOKEEPER: zk
+
+  inventory:
+    image: esolutionsacademy/inventory-cornel:1
+    links:
+      - discovery:discovery
+      - zookeeper:zk
+      - kafka:kafka
+    environment:
+      DISCOVERY: discovery
+      KAFKA: kafka
+      ZOOKEEPER: zk

@@ -77,10 +77,10 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-stream-binder-kafka</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-oauth2</artifactId>
-		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>org.springframework.cloud</groupId>-->
+			<!--<artifactId>spring-cloud-starter-oauth2</artifactId>-->
+		<!--</dependency>-->
 	</dependencies>
 	
 	<dependencyManagement>
@@ -108,12 +108,12 @@
                 <configuration>
                     <baseImage>anapsix/alpine-java:8</baseImage>
                     <registryUrl>docker.io</registryUrl>
-                    <imageName>esolutionsacademy/checkout-cornel</imageName>
+                    <imageName>esolutionsacademy/inventory-cornel</imageName>
                     <resources>
                         <resource>
                             <targetPath>/</targetPath>
                             <directory>${project.build.directory}</directory>
-                            <include>${project.build.finalName}</include>
+                            <include>${project.build.finalName}.jar</include>
                         </resource>
                     </resources>
                     <imageTags>

@@ -76,12 +76,12 @@
 				<configuration>
 					<baseImage>anapsix/alpine-java:8</baseImage>
 					<registryUrl>docker.io</registryUrl>
-					<imageName>esolutionsacademy/checkout-cornel</imageName>
+					<imageName>esolutionsacademy/gateway-cornel</imageName>
 					<resources>
 						<resource>
 							<targetPath>/</targetPath>
 							<directory>${project.build.directory}</directory>
-							<include>${project.build.finalName}</include>
+							<include>${project.build.finalName}.jar</include>
 						</resource>
 					</resources>
 					<imageTags>

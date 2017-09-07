@@ -69,7 +69,7 @@
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>${spring-cloud.version}</version>
+				<version>${spring-cloud.version}.jar</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -94,7 +94,7 @@
                         <resource>
                             <targetPath>/</targetPath>
                             <directory>${project.build.directory}</directory>
-                            <include>${project.build.finalName}</include>
+                            <include>${project.build.finalName}.jar</include>
                         </resource>
                     </resources>
                     <imageTags>
