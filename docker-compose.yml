@@ -15,4 +15,7 @@ services:
     environment:
       KAFKA_ZOOKEEPER_CONNECT: zk:2181
       KAFKA_ADVERTISED_HOST_NAME: localhost
-	
+  auth:
+    image: esolutionsacademy/auth-cornel:1
+    ports:
+      - "9999:9999"

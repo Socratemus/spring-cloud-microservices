@@ -26,8 +26,6 @@ inventory-service:
     MaxAutoRetries : 3
     MaxAutoRetriesNextServer : 3
 
-#zuul.sensitive-headers: Cookie, Set-Cookie
-
 eureka: 
   client:
     service-url:
@@ -35,7 +33,12 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
 
+hystrix.commmand.default.execution.isolation.strategy: SEMAPHORE
+
 feign:
+  oauth2:
+    enabled: true
   hystrix:
     enabled: true
+
 

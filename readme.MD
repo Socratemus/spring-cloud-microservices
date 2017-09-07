@@ -21,3 +21,16 @@
 
 5. Checkout
 ...
+
+
+! Resources:
+Bluemix, Heroku, Jenkins, Bamboo
+
+Create docker image
+`mvn clean package docker:build -DbuildNumber=1 -DskipTests`
+
+See current images
+`docker images | grep academy` : 
+
+Push docker image to docker.io repo
+`docker push **esolutionsacademy/auth-cornel**`
